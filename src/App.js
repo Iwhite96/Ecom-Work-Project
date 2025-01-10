@@ -1,7 +1,7 @@
 import Nav from "./components/Nav";
 import React, { useEffect, useState } from "react";
 import Footer from "./components/Footer";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Books from "./pages/Books";
 import { books } from "./data";
 import BookInfo from "./pages/BookInfo";
@@ -43,13 +43,14 @@ function App() {
     <Router>
       <div className="App">
         <Nav />
-        <Route path="/" exact component={Home} />
-        <Route path="/books" exact render={() => <Books books={books} />} />
+        <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<Books books={books} />} />
         <Route
-          path="/books/:id"
-          render={() => <BookInfo books={books} addToCart={addToCart} />}
+          path="/books/:id" element={<BookInfo books={books} addToCart={addToCart} />}
         />
-        <Route path="/cart" render={() => <Cart books={books} cart={cart} />} />
+        <Route path="/cart" element={<Cart books={books} cart={cart} />} />
+        </Routes>
         <Footer />
       </div>
     </Router>
