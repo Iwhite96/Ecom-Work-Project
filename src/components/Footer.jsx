@@ -1,6 +1,6 @@
 import React from 'react'
 import Logo from '../ecom-assets/Library.svg'
-import { Link } from 'react-router-dom/cjs/react-router-dom.min'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
   return (
